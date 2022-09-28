@@ -7,12 +7,12 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
     buildToolsVersion '29.0.2'
     defaultConfig {
         applicationId 'com.zegoggles.smssync'
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode 1602
         versionName '1.6.0-BETA2'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -60,6 +60,7 @@ dependencies {
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'androidx.core:core-role:1.0.0-beta01'
+    implementation 'androidx.work:work-runtime:2.7.1'
 
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.robolectric:robolectric:4.3.1'
@@ -71,6 +72,6 @@ dependencies {
 
 tasks.withType(JavaCompile) {
     if (!it.name.toLowerCase().contains('test')) {
-        options.compilerArgs = ['-Werror', '-Xlint:unchecked', '-Xlint:deprecation']
+        options.compilerArgs = ['-Xlint:unchecked']
     }
 }
